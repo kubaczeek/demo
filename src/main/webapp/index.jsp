@@ -1,25 +1,19 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: kubaczeek
+  Date: 17.04.2023
+  Time: 22:28
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Rejestracja użytkowników</title>
+    <title>Title</title>
+
+  <a id="myLink" href=/demo_war_exploded//HelloServlet>link text</a>
+
 </head>
 <body>
-<h1>Rejestracja użytkownika</h1>
-<form action="HelloServlet" method="post">
-    <label>Imię:</label>
-    <input type="text" name="firstName"><br>
-    <label>Nazwisko:</label>
-    <input type="text" name="lastName"><br>
-    <label>Wiek:</label>
-    <input type="number" name="age"><br>
-    <label>Zainteresowania:</label><br>
-    <input type="checkbox" name="prefs" value="programowanie">Programowanie <br>
-    <input type="checkbox" name="prefs" value="filmy">Filmy<br>
-    <input type="checkbox" name="prefs" value="ksiazki">Książki<br>
-    <input type="checkbox" name="prefs" value="fotografia">Fotografia<br>
-    <input type="submit" value="Zarejestruj">
-</form>
+
 </body>
 </html>
