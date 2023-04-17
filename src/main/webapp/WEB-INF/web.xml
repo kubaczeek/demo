@@ -7,23 +7,17 @@
         <servlet-name>HelloServlet</servlet-name>
         <servlet-class>com.example.demo.HelloServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>PrintServlet</servlet-name>
-        <servlet-class>com.example.demo.PrintServlet</servlet-class>
-    </servlet>
 
+<listener>
+    <listener-class> NumberListListener </listener-class>
+</listener>
     <servlet-mapping>
         <servlet-name>HelloServlet</servlet-name>
-        <url-pattern>/helloServlet</url-pattern>
+        <url-pattern>/HelloServlet</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>PrintServlet</servlet-name>
-        <url-pattern>/printServlet</url-pattern>
-    </servlet-mapping>
 
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-
 </web-app>
