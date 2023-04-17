@@ -1,26 +1,42 @@
 package com.example.demo;
 
-import java.io.*;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
+@WebServlet(name = "HelloServlet", value = "/HelloServlet")
 public class HelloServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
 
-        ServletContext context = this.getServletContext();
-        copyToContext(request, context, "fName");
-        copyToContext(request, context, "lName");
-        copyToContext(request, context, "age");
-        String[] list = request.getParameterValues("interests");
-        context.setAttribute("interests", list);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("printServlet");
-        requestDispatcher.forward(request, response);
-    }
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String age = request.getParameter("age");
+        String[] prefs = request.getParameterValues("prefs");
 
-    private static void copyToContext(HttpServletRequest request, ServletContext context, String parameter) {
-        context.setAttribute(parameter, request.getParameter(parameter));
+        out.println("<html>");
+        out.println("<body>");
+        out.println("<h2>Dane użytkownika</h2>");
+        out.println("<p>Imię: " + firstName + "</p>");
+        out.println("<p>Nazwisko: " + lastName + "</p>");
+        out.println("<p>Wiek: " + age + "</p>");
+        out.println("<p>Zainteresowania: ");
+        if (prefs != null) {
+            for (String pref : prefs) {
+                out.println(pref + ", ");
+            }
+        }
+        out.println("</p>");
+        out.println("</body>");
+        out.println("</html>");
     }
 }
